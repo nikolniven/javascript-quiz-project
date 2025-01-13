@@ -7,15 +7,18 @@ class Question {
   }
 
   shuffleChoices() {
-    for (let i = 0; i <= this.choices.length; i++) {
+    for (
+      let i = 0;
+      i <= this.choices.length - 1;
+      i++ //remember the length of the array will never equal the maximum position  in the array if we start from 0
+    ) {
       let j = Math.floor(Math.random() * this.choices.length);
 
-      const temp = this.choices[i];
-      this.choices[i] = this.choices[j];
-      this.choices[j] = temp;
-
-      return this.choices;
+      const temp = this.choices[i]; //I need this one otherwise I would use the value from choices
+      this.choices[i] = this.choices[j]; // I swap them
+      this.choices[j] = temp; //assigning temp to the position of j
     }
+    return this.choices;
   }
 }
 

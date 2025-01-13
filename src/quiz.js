@@ -18,15 +18,18 @@ class Quiz {
   }
   // 4. shuffleQuestions()
   shuffleQuestions() {
-    for (let i = 0; i <= this.questions.length; i++) {
+    for (
+      let i = 0;
+      i <= this.questions.length - 1;
+      i++ // either minor of 6 or minor or equal to 5
+    ) {
       let j = Math.floor(Math.random() * this.questions.length);
 
       const temp = this.questions[i];
       this.questions[i] = this.questions[j];
       this.questions[j] = temp;
-
-      return this.questions;
     }
+    return this.questions;
   }
   // 5. checkAnswer(answer)
   checkAnswer(answer) {
